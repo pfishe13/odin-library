@@ -38,45 +38,41 @@ body {
   justify-content: space-between;
 }
 
-/* For Switch */
-input[type="checkbox"] {
-  height: 0;
-  width: 0;
-  visibility: hidden;
+/* Form */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  border: 3px solid lightblue;
+  z-index: 5;
 }
 
-label {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 60px;
-  height: 30px;
-  background: grey;
-  display: block;
-  border-radius: 100px;
-  position: relative;
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
 }
 
-label:after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  border-radius: 90px;
-  transition: 0.3s;
+.form-container input[type="text"] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
 }
 
-input:checked + label {
-  background: #bada55;
+.form-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-input:checked + label:after {
-  left: calc(100% - 5px);
-  transform: translateX(-100%);
-}
-
-label:active:after {
-  width: 30px;
+button {
+  height: 40px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 1.2em;
 }
