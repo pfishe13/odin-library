@@ -17,7 +17,8 @@ body {
     #fe8d5c,
     #f3a950
   );
-  padding: 40px;
+  padding: 0 40px;
+  /* overflow: hidden; */
 }
 
 * {
@@ -25,7 +26,6 @@ body {
   padding: 0;
   margin: 0;
   border: 0;
-  overflow: hidden;
 }
 
 h1 {
@@ -72,6 +72,7 @@ button {
   grid-template-rows: repeat(3, 1fr);
   height: 80vh;
   gap: 20px;
+  overflow: scroll;
 }
 
 .book-card {

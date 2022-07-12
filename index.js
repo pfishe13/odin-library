@@ -7,17 +7,11 @@ function Book(title, author, numPages, genre, haveRead) {
     this.author = author;
     this.numPages = numPages;
     this.genre = genre;
-    this.haveRead = Boolean(haveRead);
+    this.haveRead = (Boolean(haveRead));
 }
 
-let Book1 = new Book("Choppa", "Parker", 200, "THriller", true);
+let Book1 = new Book("Harry Potter", "J.K Rowling", 345, "Fantasy", true);
 addBookToLibrary(Book1);
-let Book2 = new Book("Gang", "Mike", 100, "Comedy", false);
-addBookToLibrary(Book2);
-let Book3 = new Book("Little Red", "Frank", 200, "THriller", true);
-addBookToLibrary(Book3);
-let Book4 = new Book("NBA", "Tham", 10, "Comedy", false);
-addBookToLibrary(Book4);
 
 function addBookToLibrary(newBook) {
     totalBooks++;
@@ -35,7 +29,6 @@ function deleteBook(e) {
 
 function loadBooks() {
     let books = document.getElementById("book-container");
-    // console.log(books);
     // Remove all child elements 
     var firstChild = books.firstElementChild;
     while(firstChild) {
@@ -43,7 +36,6 @@ function loadBooks() {
         firstChild = books.firstElementChild;
     }
 
-    // console.log(books);
     myLibrary.forEach(function(Book){
         let newBookCard = document.createElement('div');
         newBookCard.classList.add('book-card');
@@ -115,10 +107,9 @@ form.addEventListener('submit', function(e) {
     let author = document.getElementById('author').value
     let pages = document.getElementById('pages').value
     let genre = document.getElementById('genre').value
-    let hasRead = document.getElementById('hasRead').value
-
+    let hasRead = document.getElementById('hasRead').checked;
     let newBook = new Book(title, author, pages, genre, hasRead);
-    console.log(newBook);
     addBookToLibrary(newBook);
     closeForm();
+    form.reset();
 });

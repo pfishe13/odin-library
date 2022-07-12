@@ -37,12 +37,21 @@
           <label for="genre">Genre</label>
           <input id="genre"type="text"name="genre">
           
-          <label for="hasRead">Read</label>
-          <input id="hasRead" type="checkbox" id="hasRead">
+          <label for="switch-container">Completed?</label>
+          <div style="margin-top: 5px"switch-container">
+            <label for="hasRead" class="switch">
+                <input type="checkbox" id="hasRead">
+                <span class="slider round"></span>
+            </label>
+          </div>
       
           <div class="form-buttons">
-              <button type="button" class="cancel" onclick="closeForm()">Close</button>
-              <button type="submit">Add</button>
+              <button type="button" class="cancel" onclick="closeForm()"><span class="material-symbols-outlined">
+                close
+                </span></button>
+              <button type="submit"><span class="material-symbols-outlined">
+                done
+                </span></button>
           </div>
         </form>
     </div>
