@@ -1,7 +1,8 @@
 let myLibrary = [];
-
+let totalBooks = 0;
 
 function Book(title, author, numPages, genre, haveRead) {
+    this.id = totalBooks;
     this.title = title;
     this.author = author;
     this.numPages = numPages;
@@ -10,27 +11,24 @@ function Book(title, author, numPages, genre, haveRead) {
 }
 
 let Book1 = new Book("Choppa", "Parker", 200, "THriller", true);
+addBookToLibrary(Book1);
 let Book2 = new Book("Gang", "Mike", 100, "Comedy", false);
+addBookToLibrary(Book2);
 let Book3 = new Book("Little Red", "Frank", 200, "THriller", true);
+addBookToLibrary(Book3);
 let Book4 = new Book("NBA", "Tham", 10, "Comedy", false);
-myLibrary.push(Book1);
-myLibrary.push(Book2);
-myLibrary.push(Book3);
-myLibrary.push(Book4);
-loadBooks();
-
+addBookToLibrary(Book4);
 
 function addBookToLibrary(newBook) {
+    totalBooks++;
     myLibrary.push(newBook);
     loadBooks();
 }
 
-function deleteBook(book) {
-    console.log(book);
-    // console.log(book);
-    // console.log(`Deleting this book: ${book}`);
+function deleteBook(e) {
+    const bookID = e.target.id;
+    const book = myLibrary.find(book => book.id == bookID);
     let bookIndex = myLibrary.indexOf(book);
-    console.log(bookIndex);
     myLibrary.splice(bookIndex, 1);
     loadBooks();
 }
@@ -57,9 +55,30 @@ function loadBooks() {
             <h3>Genre: ${Book.genre}</h3>
         </div>
         <div class="book-buttons">
-            <div><input type="checkbox" id="switch" /><label for="switch">Toggle</label></div>
-            <button onclick="deleteBook()">Delete</button>
+            <label class="switch">
+                <input type="checkbox" id="switch">
+                <span class="slider round"></span>
+            </label>
+            <button id=${Book.id}>Delete</button>
         </div>`;
+
+        // Add event listener to delete button
+        const buttonElement = newBookCard.querySelector("button");
+        buttonElement.addEventListener('click', deleteBook);
+
+        const checkbox = newBookCard.querySelector("#switch");
+        if (Book.haveRead) {
+            checkbox.checked = true;
+        }
+
+        // Add event listener to read sitch
+        checkbox.addEventListener('change', e => {
+            if(e.target.checked) {
+                Book.haveRead = true;
+            } else {
+                Book.haveRead = false;
+            }
+        })
 
         books.appendChild(newBookCard);
     });
