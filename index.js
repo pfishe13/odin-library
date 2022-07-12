@@ -55,11 +55,16 @@ function loadBooks() {
             <h3>Genre: ${Book.genre}</h3>
         </div>
         <div class="book-buttons">
+            <div class="switch-container">
             <label class="switch">
                 <input type="checkbox" id="switch">
                 <span class="slider round"></span>
             </label>
-            <button id=${Book.id}>Delete</button>
+            <h3 class="switch-label">${ (Book.haveRead) ? `Completed` : `Incomplete` }</h3>
+            </div>
+            <button class="delete-button" id=${Book.id}><span class="material-symbols-outlined">
+            delete
+            </span></button>
         </div>`;
 
         // Add event listener to delete button
@@ -71,12 +76,15 @@ function loadBooks() {
             checkbox.checked = true;
         }
 
+        const switchLabel = newBookCard.querySelector(".switch-label");
         // Add event listener to read sitch
         checkbox.addEventListener('change', e => {
             if(e.target.checked) {
                 Book.haveRead = true;
+                switchLabel.textContent = `Completed`;
             } else {
                 Book.haveRead = false;
+                switchLabel.textContent = `Incomplete`;
             }
         })
 
@@ -87,10 +95,16 @@ function loadBooks() {
 // Form
 function openForm() {
     document.getElementById("myForm").style.display = "block";
+    document.getElementById("book-container").style.display = "none";
+    document.querySelector(".header").style.display = "none";
 }
   
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+    document.getElementById("book-container").style.display = "grid";
+    document.querySelector(".header").style.display = "flex";
+
+
 }
 
 let form = document.getElementById('newBook');
