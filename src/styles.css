@@ -1,0 +1,218 @@
+body {
+  height: 100vh;
+  font-family: 'Gantari', sans-serif;
+  background-color: #0d0d0d;
+  background-image: linear-gradient(
+    to left bottom,
+    #6530d3,
+    #7238cf,
+    #7d41cb,
+    #8649c7,
+    #8e52c3,
+    #ab52b9,
+    #c254af,
+    #d45aa5,
+    #f0618c,
+    #fd7472,
+    #fe8d5c,
+    #f3a950
+  );
+  padding: 0 40px;
+  /* overflow: hidden; */
+}
+
+* {
+  color: white;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+h1 {
+  font-size: 5em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.3em;
+  font-weight: 100;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+}
+
+.header {
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  background-color: transparent;
+}
+
+.open-button {
+  height: 5em;
+  width: 5em;
+  border: 6px solid white;
+  border-radius: 50%;
+  padding: 0;
+}
+
+#book-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 80vh;
+  gap: 20px;
+  overflow: scroll;
+}
+
+.book-card {
+  padding: 20px;
+  border-radius: 20px;
+  border: 6px solid white;
+  /* background-color: #056cf2; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-buttons > .switch-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Form */
+.form-popup {
+  padding: 20px;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  background-color: transparent;
+  border: 6px solid white;
+  border-radius: 20px;
+  z-index: 5;
+}
+
+label {
+  font-size: 1.5em;
+}
+
+.form-popup > form > h2 {
+  margin-bottom: 20px;
+}
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  /* background-color: white; */
+}
+
+.form-container input[type='text'],
+input[type='number'] {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: transparent;
+  font-size: 1.3em;
+}
+
+.form-container input[type='text']:focus-visible {
+  outline: white auto 1px;
+}
+
+.form-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  height: 40px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 1.2em;
+}
+
+/* For Custom Switch, from W3 schools */
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: #ccc; */
+  border: 2px solid white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: transparent;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px transparent;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
