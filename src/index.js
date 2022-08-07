@@ -7,6 +7,7 @@ import './styles.css';
 
 const Library = new LibraryClass();
 const startingBookCount = 0;
+
 // Get Books from local storage
 let defaultBookList = [
   {
@@ -31,17 +32,6 @@ for (const storedBook of storedBooks) {
   );
   Library.addBookToLibrary(newBook);
 }
-
-// const Book1 = new Book(
-//   'Harry Potter',
-//   'J.K Rowling',
-//   345,
-//   'Fantasy',
-//   true,
-//   Library.bookCount
-// );
-
-// Library.addBookToLibrary(Book1);
 
 const openFormButton = document.querySelector('.open-button');
 openFormButton.addEventListener('click', openForm);

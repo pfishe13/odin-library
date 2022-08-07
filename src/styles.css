@@ -18,7 +18,6 @@ body {
     #f3a950
   );
   padding: 0 40px;
-  /* overflow: hidden; */
 }
 
 * {
@@ -121,7 +120,6 @@ label {
 .form-container {
   max-width: 300px;
   padding: 10px;
-  /* background-color: white; */
 }
 
 .form-container input[type='text'],
@@ -177,7 +175,6 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  /* background-color: #ccc; */
   border: 2px solid white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
